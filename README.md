@@ -2,6 +2,8 @@
 
 
 # NewbieGuide
+fork from https://github.com/huburt-Hu/NewbieGuide
+
 Android 快速实现新手引导层的库
 
 这是一款可以通过简洁链式调用，一行代码实现引导层的显示，自动判断首次显示，当然也可以通过参数配置来满足不同的显示逻辑和需求。
