@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 .addGuidePage(//添加一页引导页
                         GuidePage.newInstance()//创建一个实例
                                 .addHighLight(button)//添加高亮的view
-                                .addHighLight(tvBottom,
+                                .addHighLight(tvBottom, null, 0, 0,
                                         new RelativeGuide(R.layout.view_relative_guide, Gravity.TOP, 100) {
                                             @Override
                                             protected void offsetMargin(MarginInfo marginInfo, ViewGroup viewGroup, View view) {
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setExitAnimation(exitAnimation)//退出动画
                 )
                 .addGuidePage(GuidePage.newInstance()
-                        .addHighLight(tvBottom, HighLight.Shape.RECTANGLE, 20)
+                        .addHighLight(tvBottom, HighLight.Shape.RECTANGLE, 20, 0, null)
                         .setLayoutRes(R.layout.view_guide_custom, R.id.iv)//引导页布局，点击跳转下一页或者消失引导层的控件id
                         .setOnLayoutInflatedListener(new OnLayoutInflatedListener() {
                             @Override

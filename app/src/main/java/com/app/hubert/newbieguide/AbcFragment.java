@@ -68,7 +68,7 @@ public class AbcFragment extends Fragment {
                         }
                     })
                     .addGuidePage(GuidePage.newInstance()
-                            .addHighLight(textView, HighLight.Shape.CIRCLE)//添加需要高亮的view
+                            .addHighLight(textView, HighLight.Shape.CIRCLE,0,0,null)//添加需要高亮的view
                             .setLayoutRes(R.layout.view_guide)//自定义的提示layout，不要添加背景色，引导层背景色通过setBackgroundColor()设置
                     )
                     .show();//直接显示引导层

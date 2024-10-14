@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
+    compileSdk rootProject.ext.compileSdkVersion
+    namespace 'com.app.hubert.newbieguide'
     defaultConfig {
         applicationId "com.app.hubert.newbieguide"
         minSdkVersion 14
@@ -32,9 +31,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
-    implementation("com.jaeger.statusbarutil:library:1.4.0") {
-        exclude group: 'com.android.support'
-    }
+//    implementation("com.jaeger.statusbarutil:library:1.5.1") {
+//        exclude group: 'com.android.support'
+//    }
     testImplementation 'junit:junit:4.12'
 
     // Lifecycles, LiveData 和 ViewModel

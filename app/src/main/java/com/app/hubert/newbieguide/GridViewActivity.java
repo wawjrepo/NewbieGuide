@@ -44,7 +44,7 @@ public class GridViewActivity extends AppCompatActivity {
                         .setLabel("grid_view_guide")
                         .alwaysShow(true)
                         .addGuidePage(GuidePage.newInstance()
-                                .addHighLight(childAt, HighLight.Shape.RECTANGLE)
+                                .addHighLight(childAt, HighLight.Shape.RECTANGLE,0,0,null)
                                 .setEverywhereCancelable(false)
                                 .setLayoutRes(R.layout.view_guide, R.id.iv))
                         .show();

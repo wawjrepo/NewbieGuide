@@ -20,15 +20,18 @@ public class HighlightView implements HighLight {
     /**
      * 高亮相对view的padding
      */
-    private int padding;
+    private int paddingLeft, paddingTop, paddingRight, paddingBottom;
     private HighlightOptions options;
     private RectF rectF;
 
-    public HighlightView(View mHole, Shape shape, int round, int padding) {
+    public HighlightView(View mHole, Shape shape, int round, int paddingLeft, int paddingTop, int paddingRight, int paddingBottom) {
         this.mHole = mHole;
         this.shape = shape;
         this.round = round;
-        this.padding = padding;
+        this.paddingLeft = paddingLeft;
+        this.paddingTop = paddingTop;
+        this.paddingRight = paddingRight;
+        this.paddingBottom = paddingBottom;
     }
 
     public void setOptions(HighlightOptions options) {
@@ -55,7 +58,7 @@ public class HighlightView implements HighLight {
         if (mHole == null) {
             throw new IllegalArgumentException("the highlight view is null!");
         }
-        return Math.max(mHole.getWidth() / 2, mHole.getHeight() / 2) + padding;
+        return Math.max(mHole.getWidth() / 2, mHole.getHeight() / 2) + (float) (paddingLeft + paddingRight) / 2;
     }
 
     @Override
@@ -75,10 +78,10 @@ public class HighlightView implements HighLight {
     private RectF fetchLocation(View target) {
         RectF location = new RectF();
         Rect locationInView = ViewUtils.getLocationInView(target, mHole);
-        location.left = locationInView.left - padding;
-        location.top = locationInView.top - padding;
-        location.right = locationInView.right + padding;
-        location.bottom = locationInView.bottom + padding;
+        location.left = locationInView.left - paddingLeft;
+        location.top = locationInView.top - paddingTop;
+        location.right = locationInView.right + paddingRight;
+        location.bottom = locationInView.bottom + paddingBottom;
         return location;
     }
 

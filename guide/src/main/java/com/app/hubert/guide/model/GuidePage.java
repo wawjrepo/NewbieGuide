@@ -40,38 +40,25 @@ public class GuidePage {
         return addHighLight(view, HighLight.Shape.RECTANGLE, 0, 0, null);
     }
 
-    public GuidePage addHighLight(View view, RelativeGuide relativeGuide) {
-        return addHighLight(view, HighLight.Shape.RECTANGLE, 0, 0, relativeGuide);
-    }
 
-    public GuidePage addHighLight(View view, HighLight.Shape shape) {
-        return addHighLight(view, shape, 0, 0, null);
-    }
-
-    public GuidePage addHighLight(View view, HighLight.Shape shape, RelativeGuide relativeGuide) {
-        return addHighLight(view, shape, 0, 0, relativeGuide);
-    }
-
-    public GuidePage addHighLight(View view, HighLight.Shape shape, int padding) {
-        return addHighLight(view, shape, 0, padding, null);
-    }
-
-    public GuidePage addHighLight(View view, HighLight.Shape shape, int padding, RelativeGuide relativeGuide) {
-        return addHighLight(view, shape, 0, padding, relativeGuide);
+    public GuidePage addHighLight(View view, HighLight.Shape shape, int round, int padding, @Nullable RelativeGuide relativeGuide) {
+        return addHighLight(view, shape, round, padding, padding, padding, padding, relativeGuide);
     }
 
     /**
      * 添加需要高亮的view
      *
      * @param view          需要高亮的view
-     * @param shape         高亮形状{@link com.app.hubert.guide.model.HighLight.Shape}
+     * @param shape         高亮形状{@link com.app.hubert.guide.model.HighLight.Shape}，默认 HighLight.Shape.RECTANGLE
      * @param round         圆角尺寸，单位dp，仅{@link com.app.hubert.guide.model.HighLight.Shape#ROUND_RECTANGLE}有效
-     * @param padding       高亮相对view的padding,单位px
+     * @param paddingLeft   高亮相对view的padding,单位px
      * @param relativeGuide 相对于高亮的引导布局
      */
-    public GuidePage addHighLight(View view, HighLight.Shape shape, int round, int padding,
-                                  @Nullable RelativeGuide relativeGuide) {
-        HighlightView highlight = new HighlightView(view, shape, round, padding);
+    public GuidePage addHighLight(View view, HighLight.Shape shape, int round, int paddingLeft, int paddingTop, int paddingRight, int paddingBottom, @Nullable RelativeGuide relativeGuide) {
+        if (shape == null) {
+            shape = HighLight.Shape.RECTANGLE;
+        }
+        HighlightView highlight = new HighlightView(view, shape, round, paddingLeft, paddingTop, paddingRight, paddingBottom);
         if (relativeGuide != null) {
             relativeGuide.highLight = highlight;
             highlight.setOptions(new HighlightOptions.Builder().setRelativeGuide(relativeGuide).build());
@@ -127,7 +114,7 @@ public class GuidePage {
     }
 
     public GuidePage addHighLightWithOptions(View view, HighLight.Shape shape, int round, int padding, HighlightOptions options) {
-        HighlightView highlight = new HighlightView(view, shape, round, padding);
+        HighlightView highlight = new HighlightView(view, shape, round, padding, padding, padding, padding);
         if (options != null) {
             if (options.relativeGuide != null) {
                 options.relativeGuide.highLight = highlight;

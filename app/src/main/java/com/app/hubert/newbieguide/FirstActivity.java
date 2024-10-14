@@ -1,5 +1,7 @@
 package com.app.hubert.newbieguide;
 
+import static com.app.hubert.guide.model.HighLight.Shape.ROUND_RECTANGLE;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -43,10 +45,20 @@ public class FirstActivity extends AppCompatActivity {
                         .setLabel("guide1")
 //                        .setShowCounts(3)//控制次数
                         .alwaysShow(true)//总是显示，调试时可以打开
-                        .addGuidePage(GuidePage.newInstance()
-                                .addHighLight(btnSimple)
-                                .addHighLight(new RectF(0, 800, 200, 1200))
-                                .setLayoutRes(R.layout.view_guide_simple))
+                        .addGuidePage(
+                                GuidePage.newInstance()
+                                        .addHighLight(
+                                                btnSimple,
+                                                ROUND_RECTANGLE, 16, 0,0,100,200,
+                                                new RelativeGuide(
+                                                        R.layout.view_guide_simple,
+                                                        Gravity.BOTTOM,
+                                                        0
+                                                )
+                                        )
+                                        .addHighLight(new RectF(0, 800, 200, 1200), ROUND_RECTANGLE)
+//                                .setLayoutRes(R.layout.view_guide_simple)
+                        )
                         .show();
             }
         });

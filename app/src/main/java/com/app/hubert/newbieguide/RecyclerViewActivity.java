@@ -59,7 +59,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                                 .alwaysShow(true)
                                 .addGuidePage(GuidePage.newInstance()
                                         //注意获取position位置view的方法，不要使用getChildAt
-                                        .addHighLight(layoutManager.findViewByPosition(targetPosition))
+                                        .addHighLight(layoutManager.findViewByPosition(targetPosition),null,0,0,null)
                                         .setLayoutRes(R.layout.view_guide_rv1)
                                         .setOnLayoutInflatedListener(new OnLayoutInflatedListener() {
                                             @Override
@@ -83,7 +83,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                         .alwaysShow(true)
                         .addGuidePage(GuidePage.newInstance()
                                 //getChildAt获取的是屏幕中可见的第一个，并不是数据中的position
-                                .addHighLight(recyclerView.getChildAt(0))
+                                .addHighLight(recyclerView.getChildAt(0),null,0,0,null)
                                 .setLayoutRes(R.layout.view_guide_rv1)
                                 .setOnLayoutInflatedListener(new OnLayoutInflatedListener() {
                                     @Override
