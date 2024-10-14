@@ -1,7 +1,9 @@
 apply plugin: 'com.android.library'
 //apply plugin: 'com.github.dcendents.android-maven'
+apply from: '../maven_publish_aar.gradle'
 
-group = 'com.github.huburt-Hu'
+version = 'v2.4.1'
+artifact = "NewbieGuide"
 
 android {
     compileSdk rootProject.ext.compileSdkVersion
@@ -17,6 +19,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 

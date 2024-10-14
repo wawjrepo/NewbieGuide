@@ -1,0 +1,54 @@
+apply plugin: 'maven-publish'
+
+ext.artifact = ''
+
+def androidLibrary = plugins.hasPlugin('com.android.library')
+if (androidLibrary) {
+    android {
+        publishing {
+            singleVariant("release") {
+                withSourcesJar()
+            }
+        }
+    }
+}else{
+    java {
+        withSourcesJar()
+    }
+}
+
+afterEvaluate {
+
+    publishing {
+        publications {
+            release(MavenPublication) {
+                afterEvaluate {
+                    if (androidLibrary) {
+                        from components.release
+                    } else {
+                        from components.java
+                    }
+                }
+                groupId = MAVEN_GROUPID//组名
+                artifactId = artifact// 当前项目的名字
+                version = version
+                println("maven地址 " + MAVEN_GROUPID + ":" + artifact + ":" + version)
+            }
+        }
+        repositories {
+            maven {
+                // 可以有且仅有一个仓库不指定 name 属性，会隐式设置为 Maven
+                // 根据libVersionName判断仓库地址
+                url = version.startsWith('beta') ? MAVEN_SNAPSHOT_URL : MAVEN_RELEASE_URL
+                name = "maven"
+                // 仓库用户名密码
+                credentials {
+                    username = MAVEN_USER
+                    password = MAVEN_PASSWORD
+                }
+            }
+        }
+
+    }
+
+}
