@@ -106,15 +106,15 @@ public class GuidePage {
     }
 
     public GuidePage addHighLightWithOptions(View view, HighlightOptions options) {
-        return addHighLightWithOptions(view, HighLight.Shape.RECTANGLE, 0, 0, options);
-    }
-
-    public GuidePage addHighLightWithOptions(View view, HighLight.Shape shape, HighlightOptions options) {
-        return addHighLightWithOptions(view, shape, 0, 0, options);
+        return addHighLightWithOptions(view, HighLight.Shape.RECTANGLE, 0, 0, 0, 0, 0, options);
     }
 
     public GuidePage addHighLightWithOptions(View view, HighLight.Shape shape, int round, int padding, HighlightOptions options) {
-        HighlightView highlight = new HighlightView(view, shape, round, padding, padding, padding, padding);
+        return addHighLightWithOptions(view, shape, round, padding, padding, padding, padding, options);
+    }
+
+    public GuidePage addHighLightWithOptions(View view, HighLight.Shape shape, int round, int paddingLeft, int paddingTop, int paddingRight, int paddingBottom, HighlightOptions options) {
+        HighlightView highlight = new HighlightView(view, shape, round, paddingLeft, paddingTop, paddingRight, paddingBottom);
         if (options != null) {
             if (options.relativeGuide != null) {
                 options.relativeGuide.highLight = highlight;

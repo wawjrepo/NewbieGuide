@@ -49,7 +49,7 @@ public class FirstActivity extends AppCompatActivity {
                                 GuidePage.newInstance()
                                         .addHighLight(
                                                 btnSimple,
-                                                ROUND_RECTANGLE, 16, 0,0,100,200,
+                                                ROUND_RECTANGLE, 16, 0, 0, 100, 200,
                                                 new RelativeGuide(
                                                         R.layout.view_guide_simple,
                                                         Gravity.BOTTOM,
@@ -109,7 +109,7 @@ public class FirstActivity extends AppCompatActivity {
                         .anchor(anchorView)
                         .alwaysShow(true)//总是显示，调试时可以打开
                         .addGuidePage(GuidePage.newInstance()
-                                .addHighLightWithOptions(btnAnchor, HighLight.Shape.CIRCLE, options)
+                                .addHighLightWithOptions(btnAnchor, HighLight.Shape.CIRCLE, 0, 0, options)
                                 .setLayoutRes(R.layout.view_guide_anchor))
                         .show();
             }

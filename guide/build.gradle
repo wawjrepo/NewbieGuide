@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 //apply plugin: 'com.github.dcendents.android-maven'
 apply from: '../maven_publish_aar.gradle'
 
-version = 'v2.4.1'
+version = 'v2.4.2'
 artifact = "NewbieGuide"
 
 android {
